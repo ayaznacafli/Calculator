@@ -1,0 +1,7 @@
+spring:
+  webservice:
+    soapAction:
+      add: http://tempuri.org/Add
+      subtract: http://tempuri.org/Subtract
+      multiply: http://tempuri.org/Multiply
+      divide: http://tempuri.org/Divide
