@@ -26,8 +26,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
     @Value("${spring.webservice.soapAction.subtract}")
     private String soapActionSubtract;
 
-    public AddResponse add(int intA, int intB){
-        logger.info("Responce from SOAP");
+    public AddResponse add(int intA, int intB, int uId){
+        logger.info("Call {}. Response to SOAP",uId);
         ObjectFactory objectFactory = new ObjectFactory();
         Add add =  objectFactory.createAdd();
         add.setIntA(intA);
@@ -36,8 +36,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
                 message ->((SoapMessage) message).setSoapAction(soapActionAdd));
         return addResponse;
     }
-    public DivideResponse divide(int intA, int intB){
-        logger.info("Responce from SOAP");
+    public DivideResponse divide(int intA, int intB,int uId){
+        logger.info("Call {}. Response to SOAP",uId);
         ObjectFactory objectFactory = new ObjectFactory();
         Divide divide =  objectFactory.createDivide();
         divide.setIntA(intA);
@@ -47,8 +47,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
         return divideResponse;
     }
 
-    public MultiplyResponse multiply(int intA, int intB){
-        logger.info("Responce from SOAP");
+    public MultiplyResponse multiply(int intA, int intB,int uId){
+        logger.info("Call {}. Response to SOAP",uId);
         ObjectFactory objectFactory = new ObjectFactory();
         Multiply multiply =  objectFactory.createMultiply();
         multiply.setIntA(intA);
@@ -57,8 +57,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
                 message ->((SoapMessage) message).setSoapAction(soapActionMultuply));
         return multiplyResponse;
     }
-    public SubtractResponse subtract(int intA, int intB){
-        logger.info("Responce from SOAP");
+    public SubtractResponse subtract(int intA, int intB,int uId){
+        logger.info("Call {}. Response to SOAP",uId);
         ObjectFactory objectFactory = new ObjectFactory();
         Subtract subtract =  objectFactory.createSubtract();
         subtract.setIntA(intA);

@@ -1,10 +1,7 @@
 package com.ayaz.service.impl;
 
 
-import com.ayaz.dto.AddDTO;
-import com.ayaz.dto.DivideDTO;
-import com.ayaz.dto.MultiplyDTO;
-import com.ayaz.dto.SubtractDTO;
+import com.ayaz.dto.WebDTO;
 import com.ayaz.service.CalculatorService;
 import com.ayaz.clentsoap.*;
 import com.ayaz.ws_controller.CalculatorClient;
@@ -23,38 +20,38 @@ public class CalculatorServiceImpl implements CalculatorService {
 
 
     @Override
-    public AddResponse add(AddDTO addDTO) {
-        logger.info("Request to SOAP");
+    public AddResponse add(WebDTO webDTO, int uId) {
+        logger.info("Call {}. Request to SOAP",uId);
         Add add = new Add();
-        add.setIntA(Integer.parseInt(addDTO.getIntA()));
-        add.setIntB(Integer.parseInt(addDTO.getIntB()));
-        return calculatorClient.add(add.getIntA(),add.getIntB());
+        add.setIntA(Integer.parseInt(webDTO.getIntA()));
+        add.setIntB(Integer.parseInt(webDTO.getIntB()));
+        return calculatorClient.add(add.getIntA(),add.getIntB(),uId);
     }
 
     @Override
-    public DivideResponse divide(DivideDTO divideDTO) {
-        logger.info("Request to SOAP");
+    public DivideResponse divide(WebDTO webDTO, int uId) {
+        logger.info("Call {}. Request to SOAP",uId);
         Divide divide = new Divide();
-        divide.setIntA(Integer.parseInt(divideDTO.getIntA()));
-        divide.setIntB(Integer.parseInt(divideDTO.getIntB()));
-        return calculatorClient.divide(divide.getIntA(),divide.getIntB());
+        divide.setIntA(Integer.parseInt(webDTO.getIntA()));
+        divide.setIntB(Integer.parseInt(webDTO.getIntB()));
+        return calculatorClient.divide(divide.getIntA(),divide.getIntB(),uId);
     }
 
     @Override
-    public MultiplyResponse multiply(MultiplyDTO multiplyDTO) {
-        logger.info("Request to SOAP");
+    public MultiplyResponse multiply(WebDTO webDTO, int uId) {
+        logger.info("Call {}. Request to SOAP",uId);
         Multiply multiply = new Multiply();
-        multiply.setIntA(Integer.parseInt(multiplyDTO.getIntA()));
-        multiply.setIntB(Integer.parseInt(multiplyDTO.getIntB()));
-        return calculatorClient.multiply(multiply.getIntA(),multiply.getIntB());
+        multiply.setIntA(Integer.parseInt(webDTO.getIntA()));
+        multiply.setIntB(Integer.parseInt(webDTO.getIntB()));
+        return calculatorClient.multiply(multiply.getIntA(),multiply.getIntB(),uId);
     }
 
     @Override
-    public SubtractResponse subtract(SubtractDTO subtractDTO) {
-        logger.info("Request to SOAP");
+    public SubtractResponse subtract(WebDTO webDTO, int uId) {
+        logger.info("Call {}. Request to SOAP",uId);
         Subtract subtract = new Subtract();
-        subtract.setIntA(Integer.parseInt(subtractDTO.getIntA()));
-        subtract.setIntB(Integer.parseInt(subtractDTO.getIntB()));
-        return calculatorClient.subtract(subtract.getIntA(),subtract.getIntB());
+        subtract.setIntA(Integer.parseInt(webDTO.getIntA()));
+        subtract.setIntB(Integer.parseInt(webDTO.getIntB()));
+        return calculatorClient.subtract(subtract.getIntA(),subtract.getIntB(),uId);
     }
 }

@@ -2,23 +2,13 @@ package com.ayaz.dto;
 
 import com.ayaz.validation.ValidInteger;
 
-public class SubtractDTO {
-
+public class WebDTO {
 
     @ValidInteger
     private String intA;
 
     @ValidInteger
     private String intB;
-
-
-    public String getIntA() {
-        return intA;
-    }
-
-    public void setIntA(String intA) {
-        this.intA = intA;
-    }
 
     public String getIntB() {
         return intB;
@@ -28,5 +18,11 @@ public class SubtractDTO {
         this.intB = intB;
     }
 
+    public String getIntA() {
+        return intA;
+    }
 
+    public void setIntA(String intA) {
+        this.intA = intA;
+    }
 }
